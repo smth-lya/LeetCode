@@ -91,6 +91,34 @@ namespace Tasks.Cycle
                 }
             }
         }
-      
+        public static void MoveZeroes(int[] nums)
+        {
+            int i = 0,
+                j = nums.Length - 1,
+                ki = 0,
+                kj = 0;
+
+            while (i < nums.Length)
+            {
+                if (nums[i] == 0)
+                {
+                    ki++;
+                }
+                else if (ki != 0)
+                {
+                    nums[i - ki] = nums[i];
+                }
+
+                if (nums[j] == 0)
+                {
+                    kj++;
+                }
+
+                if (nums.Length - i <= ki + kj)
+                    nums[i] = 0;
+
+                i++; j--;
+            }
+        }
     }
 }
